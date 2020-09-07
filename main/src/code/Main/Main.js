@@ -25,7 +25,7 @@ class Main extends PureComponent {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Learn React
+                        Learn Reacts
                      </a>
                 </header>
             </div>
