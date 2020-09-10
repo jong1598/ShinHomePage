@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/ShinHomePage/static/css/main.5f361e03.chunk.css",
-    "main.js": "/ShinHomePage/static/js/main.28adf297.chunk.js",
-    "main.js.map": "/ShinHomePage/static/js/main.28adf297.chunk.js.map",
+    "main.css": "/ShinHomePage/static/css/main.b8a35eae.chunk.css",
+    "main.js": "/ShinHomePage/static/js/main.0d2e92a4.chunk.js",
+    "main.js.map": "/ShinHomePage/static/js/main.0d2e92a4.chunk.js.map",
     "runtime-main.js": "/ShinHomePage/static/js/runtime-main.451c5cc4.js",
     "runtime-main.js.map": "/ShinHomePage/static/js/runtime-main.451c5cc4.js.map",
-    "static/js/2.6de12176.chunk.js": "/ShinHomePage/static/js/2.6de12176.chunk.js",
-    "static/js/2.6de12176.chunk.js.map": "/ShinHomePage/static/js/2.6de12176.chunk.js.map",
+    "static/js/2.88740e05.chunk.js": "/ShinHomePage/static/js/2.88740e05.chunk.js",
+    "static/js/2.88740e05.chunk.js.map": "/ShinHomePage/static/js/2.88740e05.chunk.js.map",
     "index.html": "/ShinHomePage/index.html",
-    "precache-manifest.571f2e33f7c03a946253f8dc7e2a57d8.js": "/ShinHomePage/precache-manifest.571f2e33f7c03a946253f8dc7e2a57d8.js",
+    "precache-manifest.be6ac7f39eabfd94ae1fcf60c60cfdbd.js": "/ShinHomePage/precache-manifest.be6ac7f39eabfd94ae1fcf60c60cfdbd.js",
     "service-worker.js": "/ShinHomePage/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/ShinHomePage/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.6de12176.chunk.js.LICENSE.txt": "/ShinHomePage/static/js/2.6de12176.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/ShinHomePage/static/media/logo.5d5d9eef.svg"
+    "static/css/main.b8a35eae.chunk.css.map": "/ShinHomePage/static/css/main.b8a35eae.chunk.css.map",
+    "static/js/2.88740e05.chunk.js.LICENSE.txt": "/ShinHomePage/static/js/2.88740e05.chunk.js.LICENSE.txt",
+    "static/media/gitLogo.png": "/ShinHomePage/static/media/gitLogo.4fcf6a58.png",
+    "static/media/logo.png": "/ShinHomePage/static/media/logo.3b135343.png"
   },
   "entrypoints": [
     "static/js/runtime-main.451c5cc4.js",
-    "static/js/2.6de12176.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.28adf297.chunk.js"
+    "static/js/2.88740e05.chunk.js",
+    "static/css/main.b8a35eae.chunk.css",
+    "static/js/main.0d2e92a4.chunk.js"
   ]
 }
