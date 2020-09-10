@@ -49,6 +49,10 @@ class Header extends PureComponent {
         }
     }
 
+    onClick_logo = () => {
+        this.setState({ selected_Index: '' })
+    }
+
     createButton = (buttons) => {
 
         let buttonComponents = []
@@ -81,14 +85,13 @@ class Header extends PureComponent {
     render() {
         const { buttons } = this.props
 
-
         let buttonComponents = this.createButton(buttons)
         let gitLinkComponents = this.createGitLink()
 
         return (
             <header className="Main-Header">
-                <img className="Main-Header-Logo" src={logo} />
-                <h1 className="Main-Header-Text"><a href="#/Main">SHIN</a></h1>
+                <a href="#/Main" onClick={this.onClick_logo}><img className="Main-Header-Logo" src={logo} /></a>
+                <h1 className="Main-Header-Text"><a href="#/Main" onClick={this.onClick_logo}>SHIN</a></h1>
                 <div className="Main-Header-Menu" >{buttonComponents}</div>
                 <div className="Main-Header-GitLink">{gitLinkComponents}</div>
             </header>

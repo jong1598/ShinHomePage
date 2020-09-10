@@ -55,6 +55,7 @@ class ShinButton extends PureComponent {
                 style={buttonStyle}
                 href={href}
                 ref='button'
+                className='button'
                 onClick={this.onClick}
                 onMouseEnter={this.onMouseEnter}
                 onMouseLeave={this.onMouseLeave}>
@@ -62,6 +63,7 @@ class ShinButton extends PureComponent {
             </a> :
                 <button
                     ref='button'
+                    className='button'
                     style={buttonStyle}
                     onClick={this.onClick}
                     onMouseEnter={this.onMouseEnter}
