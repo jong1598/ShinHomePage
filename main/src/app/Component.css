@@ -1,0 +1,17 @@
+.button {
+    margin: 0;
+    padding: 0;
+    text-rendering: auto;
+    word-spacing: normal;
+    letter-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    align-items: flex-start;
+    cursor: default;
+    background-color: lightgray;
+    font: 400 13px Arial;
+    border-width: 2px;
+    border-style: outset;
+    border-color: lightslategray;
+    border-image: initial;
+}
