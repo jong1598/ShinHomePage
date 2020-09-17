@@ -4,10 +4,15 @@
   height: 100%;
 }
 
-
+/* 메인 영역 */
+.Main {
+  position: initial;
+  width: 100%;
+  height: calc(100% - 60px);
+}
 
 /* 메인 헤더영역 */
-.Main-Header {
+.Main-Header-Dark {
   position: fixed;
   z-index: 100;
   overflow: hidden;
@@ -15,8 +20,22 @@
   top: 0;
   width: 100%;
   height: 60px;
-  background: rgb(251,255,247);
-  border-bottom: 1px solid #cccccc;
+  background: #333333;
+  color: #ffffff;
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+.Main-Header-Bright {
+  position: fixed;
+  z-index: 100;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
 .Main-Header-Logo {
@@ -38,19 +57,91 @@
   font-weight: 200;
   font-size: 48px;
   line-height: 60px;
-  color: black;
+  color: inherit;
 }
 
-.Main-Header-GitLink {
+.Main-Header-Link {
   position: absolute;
   top: 0;
   right: 0;
   padding: 10px;
 }
 
-/* 메인 영역 */
-.Main {
-  position: initial;
-  width: 100%;
-  height: calc(100% - 60px);
+.Main-Navigation-Dark {
+  position: fixed;
+  top: 67px;
+  left: 0px;
+  width: 240px;
+  overflow-y: auto;
+  bottom: 0px;
+  background: #121212;
+  color: #ffffff;
+  z-index: 0;
+  flex-direction: column;
+}
+
+.Main-Navigation-Bright {
+  position: fixed;
+  top: 67px;
+  left: 0px;
+  width: 240px;
+  overflow-y: auto;
+  bottom: 0px;
+  background: #ffffff;
+  color: #000000;
+  z-index: 0;
+  flex-direction: column;
+}
+
+
+.Main-Container-Dark {
+  position: fixed;
+  top: 67px;
+  left: 240px;
+  width: calc(100% - 175px - 240px);
+  overflow: auto;
+  bottom: 0px;
+  background: #121212;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  z-index: 0;
+}
+
+.Main-Container-Bright {
+  position: fixed;
+  top: 67px;
+  left: 240px;
+  width: calc(100% - 175px - 240px);
+  overflow: auto;
+  bottom: 0px;
+  background: #ffffff;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  color: #000000;
+  z-index: 0;
+}
+
+.Main-PageTable-Dark {
+  position: fixed;
+  top: 67px;
+  left: calc(100% - 175px);
+  width: 175px;
+  overflow: auto;
+  bottom: 0px;
+  background: #121212;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  z-index: 0;
+}
+
+.Main-PageTable-Bright {
+  position: fixed;
+  top: 67px;
+  left: calc(100% - 175px);
+  width: 175px;
+  overflow: auto;
+  bottom: 0px;
+  background: #ffffff;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+  color: #000000;
+  z-index: 0;
 }

@@ -48,7 +48,7 @@ class ShinButton extends PureComponent {
 
         let labelComponent = label ? <span style={labelStyle}>{label}</span> : ''
 
-        let buttonStyle = isHover ? hoverStyle : style
+        let buttonStyle = isHover ? (hoverStyle ? hoverStyle : style) : style
 
         return (
             href ? <a
@@ -58,7 +58,8 @@ class ShinButton extends PureComponent {
                 className='button'
                 onClick={this.onClick}
                 onMouseEnter={this.onMouseEnter}
-                onMouseLeave={this.onMouseLeave}>
+                onMouseLeave={this.onMouseLeave}
+            >
                 {labelComponent}
             </a> :
                 <button
@@ -67,7 +68,8 @@ class ShinButton extends PureComponent {
                     style={buttonStyle}
                     onClick={this.onClick}
                     onMouseEnter={this.onMouseEnter}
-                    onMouseLeave={this.onMouseLeave}>
+                    onMouseLeave={this.onMouseLeave}
+                >
                     {labelComponent}
                 </button>
         )

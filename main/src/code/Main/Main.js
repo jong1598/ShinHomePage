@@ -1,35 +1,40 @@
-import React, {PureComponent} from 'react';
-import Header from './Header'
+import React, { PureComponent } from 'react';
+import { MainContainer } from './'
+import { Header } from '../Common'
 
 class Main extends PureComponent {
 
     constructor(props) {
         super(props)
 
-        this.headerMenus = [
-            {label:'메뉴1', href:'#/menu1'},
-            {label:'메뉴2', href:'#/menu2'},
-            {label:'메뉴3', href:'#/menu3'},
-            {label:'메뉴4', href:'#/menu4'},
-            {label:'메뉴5', href:'#/menu5'},
-            {label:'메뉴6', href:'#/menu6'},
-            {label:'메뉴7', href:'#/menu7'},
-        ]
+        this.header = React.createRef()
+        this.mainContainer = React.createRef()
 
         this.state = {
+            isDark: true
         }
     }
 
-    onClick = (selected_Index) => {
-        this.setState({selected_Index})
+    callbackFunction = {
+        setIsDark: (isDark) => {
+            this.setState({ isDark })
+            if(isDark === true) document.getElementById('body').style.background = '#000000'
+            else document.getElementById('body').style.background = '#ffffff'
+        },
+        resetIndex: () => {
+            this.header.current.setState({selected_Index: ''})      //헤더 select 리셋
+            this.mainContainer.current.navigation.current.setState({selected_Index: ''})      //네비게이션 select 리셋
+        }
     }
 
     render() {
+        const { isDark } = this.state
 
         return (
             <div className="App">
                 <div className='Main'>
-                    <Header buttons={this.headerMenus}/>
+                    <Header isDark={isDark} callbackFunction={this.callbackFunction} ref={this.header} />
+                    <MainContainer isDark={isDark} ref={this.mainContainer} />
                 </div>
             </div>
         )

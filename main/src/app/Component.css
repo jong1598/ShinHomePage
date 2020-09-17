@@ -15,3 +15,22 @@
     border-color: lightslategray;
     border-image: initial;
 }
+
+.tooltip-body {
+    position: absolute;
+    background: #bbbbbb;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+  }
+
+
+.NavigationListItem {
+    width: 100%;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    text-align: left;
+    align-items: center;
+    justify-content: flex-start;
+  }
