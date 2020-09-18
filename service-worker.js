@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ShinHomePage/precache-manifest.be6ac7f39eabfd94ae1fcf60c60cfdbd.js"
+  "/ShinHomePage/precache-manifest.419e0b91a297ccd686657b36a86c4888.js"
 );
 
 self.addEventListener('message', (event) => {
