@@ -1,7 +1,6 @@
 import React,{ PureComponent } from "react";
-import { Navigation, PageTable} from '../Common'
 
-class MainContainer extends PureComponent {
+class HomeContent extends PureComponent {
     constructor(props) {
         super(props)
         this.navigation = React.createRef()
@@ -16,11 +15,9 @@ class MainContainer extends PureComponent {
         const { isDark } = this.props
         return (
             <React.Fragment>
-                <Navigation isDark={isDark} ref={this.navigation} />
-                <div className={isDark ? 'Main-Container-Dark' : 'Main-Container-Bright'} >test</div>
-                <PageTable isDark={isDark} />
+                <div className={isDark ? 'Home-Dark' : 'Home-Bright'} >Home</div>
             </React.Fragment>
         )
     }
 }
-export default MainContainer
+export default HomeContent

@@ -1,4 +1,5 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
+import Ripples from 'react-ripples'
 
 class ShinButton extends PureComponent {
     constructor(props) {
@@ -13,7 +14,7 @@ class ShinButton extends PureComponent {
      * 버튼 클릭시 이벤트
      */
     onClick = () => {
-        if(this.props.onClick){
+        if (this.props.onClick) {
             this.props.onClick(this.props)
         }
     }
@@ -41,37 +42,65 @@ class ShinButton extends PureComponent {
             labelStyle,
             label,
             href,
+            isRipple,
+            rippleProps
         } = this.props
 
         const { isHover } = this.state
 
-
         let labelComponent = label ? <span style={labelStyle}>{label}</span> : ''
-
         let buttonStyle = isHover ? (hoverStyle ? hoverStyle : style) : style
-
+        let ripple_duration = rippleProps ? rippleProps.duration : undefined
+        let ripple_color = rippleProps ? rippleProps.color : undefined
         return (
-            href ? <a
-                style={buttonStyle}
-                href={href}
-                ref='button'
-                className='button'
-                onClick={this.onClick}
-                onMouseEnter={this.onMouseEnter}
-                onMouseLeave={this.onMouseLeave}
-            >
-                {labelComponent}
-            </a> :
-                <button
+            isRipple === true ?
+                href ? <Ripples during={ripple_duration} color={ripple_color}>
+                    <a
+                        style={buttonStyle}
+                        href={href}
+                        ref='button'
+                        className='button'
+                        onClick={this.onClick}
+                        onMouseEnter={this.onMouseEnter}
+                        onMouseLeave={this.onMouseLeave}
+                    >
+                        {labelComponent}
+                    </a>
+                </Ripples> :
+                    <Ripples during={ripple_duration} color={ripple_color}>
+                        <button
+                            ref='button'
+                            className='button'
+                            style={buttonStyle}
+                            onClick={this.onClick}
+                            onMouseEnter={this.onMouseEnter}
+                            onMouseLeave={this.onMouseLeave}
+                        >
+                            {labelComponent}
+                        </button>
+                    </Ripples> :
+                href ? <a
+                    style={buttonStyle}
+                    href={href}
                     ref='button'
                     className='button'
-                    style={buttonStyle}
                     onClick={this.onClick}
                     onMouseEnter={this.onMouseEnter}
                     onMouseLeave={this.onMouseLeave}
                 >
                     {labelComponent}
-                </button>
+                </a> :
+                    <button
+                        ref='button'
+                        className='button'
+                        style={buttonStyle}
+                        onClick={this.onClick}
+                        onMouseEnter={this.onMouseEnter}
+                        onMouseLeave={this.onMouseLeave}
+                    >
+                        {labelComponent}
+                    </button>
+
         )
     }
 }

@@ -67,49 +67,74 @@
   padding: 10px;
 }
 
-.Main-Navigation-Dark {
-  position: fixed;
-  top: 67px;
-  left: 0px;
-  width: 240px;
-  overflow-y: auto;
-  bottom: 0px;
-  background: #121212;
-  color: #ffffff;
-  z-index: 0;
-  flex-direction: column;
-}
-
-.Main-Navigation-Bright {
-  position: fixed;
-  top: 67px;
-  left: 0px;
-  width: 240px;
-  overflow-y: auto;
-  bottom: 0px;
-  background: #ffffff;
-  color: #000000;
-  z-index: 0;
-  flex-direction: column;
-}
-
 
 .Main-Container-Dark {
   position: fixed;
-  top: 67px;
-  left: 240px;
-  width: calc(100% - 175px - 240px);
+  top: 0;
+  left: 0;
+  width: 100%;
   overflow: auto;
   bottom: 0px;
   background: #121212;
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
   color: #ffffff;
   z-index: 0;
 }
 
 .Main-Container-Bright {
   position: fixed;
-  top: 67px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: auto;
+  bottom: 0px;
+  background: #ffffff;
+  color: #000000;
+  z-index: 0;
+}
+
+.Navigation-Dark {
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  width: 240px;
+  overflow-y: auto;
+  bottom: 0px;
+  background: #121212;
+  color: #ffffff;
+  z-index: 0;
+  flex-direction: column;
+}
+
+.Navigation-Bright {
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  width: 240px;
+  overflow-y: auto;
+  bottom: 0px;
+  background: #ffffff;
+  color: #000000;
+  z-index: 0;
+  flex-direction: column;
+}
+
+
+.Container-Dark {
+  position: fixed;
+  top: 60px;
+  left: 240px;
+  width: calc(100% - 175px - 240px);
+  overflow: auto;
+  bottom: 0px;
+  background: #121212;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  z-index: 0;
+}
+
+.Container-Bright {
+  position: fixed;
+  top: 60px;
   left: 240px;
   width: calc(100% - 175px - 240px);
   overflow: auto;
@@ -120,9 +145,9 @@
   z-index: 0;
 }
 
-.Main-PageTable-Dark {
+.PageTable-Dark {
   position: fixed;
-  top: 67px;
+  top: 60px;
   left: calc(100% - 175px);
   width: 175px;
   overflow: auto;
@@ -133,9 +158,9 @@
   z-index: 0;
 }
 
-.Main-PageTable-Bright {
+.PageTable-Bright {
   position: fixed;
-  top: 67px;
+  top: 60px;
   left: calc(100% - 175px);
   width: 175px;
   overflow: auto;
@@ -144,4 +169,32 @@
   border-left: 1px solid rgba(0, 0, 0, 0.12);
   color: #000000;
   z-index: 0;
+}
+
+
+
+.Home-Dark {
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  width: 100%;
+  overflow-y: auto;
+  bottom: 0px;
+  background: #121212;
+  color: #ffffff;
+  z-index: 0;
+  flex-direction: column;
+}
+
+.Home-Bright {
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  width: 100%;
+  overflow-y: auto;
+  bottom: 0px;
+  background: #ffffff;
+  color: #000000;
+  z-index: 0;
+  flex-direction: column;
 }

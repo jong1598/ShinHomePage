@@ -24,7 +24,8 @@ class Navigation extends PureComponent {
             paddingBottom: '8px',
             textDecoration: 'none',
             textAlign: 'left',
-            outline: 0
+            outline: 0,
+            transition: 'background 0.4s'
         }
         this.labelStyle = {
             display:'inherit',
@@ -33,40 +34,9 @@ class Navigation extends PureComponent {
             fontWeight: 100
         }
         this.state = {
-            navigateList: [
-                {
-                    index: 'Introduction_button', label: 'Introduction',
-                    list: [
-                        { index: 'Project', label: 'Project', href: '#/Project'},
-                        { index: 'Portfolio', label: 'Portfolio', href: '#/Portfolio' },
-                        { index: 'Aboutas', label: 'About as', href: '#/Aboutas' },
-                    ]
-                },
-                {
-                    index: 'SHIN_button', label: 'S H I N',
-                    list: [
-                        {
-                            index: 'Component_button', label: 'Component',
-                            list: [
-                                { index: 'Button', label: 'Button', href: '#/Component/Button' },
-                                { index: 'TextField', label: 'Text Field', href: '#/Component/TextField' },
-                                { index: 'CheckBox', label: 'Check Box', href: '#/Component/CheckBox' },
-                                { index: 'Radio', label: 'Radio', href: '#/Component/Radio' },
-                            ]
-                        },
-                        {
-                            index: 'Dialog_button', label: 'Dialog',
-                            list: [
-                                { index: 'AlertDialog', label: 'Alert Dialog', href: '#/Dialog/AlertDialog' },
-                                { index: 'ConfirmDialog', label: 'Confirm Dialog', href: '#/Dialog/ConfirmDialog' },
-                            ]
-                        }
-                    ]
-                },
-                { index: 'started6', label: 'Getting Started6', href: '#/started6' }
-            ],
-            selected_Index: '',
-            selected_Label: '',
+            navigateList: props.navigateList ? props.navigateList : [],
+            selected_Index: props.selected_Index,
+            selected_Label: props.selected_Label,
             selected_Button: []
         }
     }
@@ -78,16 +48,14 @@ class Navigation extends PureComponent {
 
         for (let i = 0; i < navigateList.length; i++) {
             let extraStyle = {}
-            if(navigateList[i]['label'].includes('button')){
-
-            }else if(selected_Label === navigateList[i]['label']){
+            if(selected_Label === navigateList[i]['label']){
                 extraStyle = {color: '#cc22dd'}
             }
             
-
+            let isRipple = navigateList[i]['index'].includes('button') ? true : false
             list.push(
                 <ShinListItem
-                    hoverStyle={{background: isDark ? 'rgba(255, 255, 255, 0.12)' : '#bbbbbb'}}
+                    hoverStyle={{ background: isDark ? 'rgba(255, 255, 255, 0.12)' : '#bbbbbb' }}
                 >
                     <ShinButton
                         onClick={this.onClick}
@@ -96,39 +64,51 @@ class Navigation extends PureComponent {
                         labelStyle={this.labelStyle}
                         style={{ ...this.buttonStyle, ...extraStyle }}
                         href={navigateList[i]['href']}
+                        isRipple={isRipple}
+                        rippleProps={isRipple ? {duration: '850', color: 'rgba(255, 255, 255, 0.16)'} : undefined}
                     />
                 </ShinListItem>
             )
 
             //버튼이 클릭되어진 상태일떄 하위 리스트도 보여주기
             if(navigateList[i]['index'].includes('button') && selected_Button.includes(navigateList[i]['index'])){
-                for(let j = 0; j < navigateList[i]['list'].length; j++){
-                    let extraStyle2 = {}
-                    if(selected_Label === navigateList[i]['list'][j]['label']){
-                        extraStyle2 = {color: '#cc22dd'}
-                    }
-                    list.push(
-                        <ShinListItem
-                            hoverStyle={{background: isDark ? 'rgba(255, 255, 255, 0.12)' : '#bbbbbb'}}
-                        >
-                            <ShinButton
-                                onClick={this.onClick}
-                                index={navigateList[i]['list'][j]['index']}
-                                label={navigateList[i]['list'][j]['label']}
-                                labelStyle={this.labelStyle}
-                                style={{ ...this.buttonStyle, ...extraStyle2, paddingLeft: '50px', fontSize: '12px' }}
-                                href={navigateList[i]['list'][j]['href']}
-                            />
-                        </ShinListItem>
-                    )
-                }
+                let underList = navigateList[i]['list']
+                list = this.creact_button_list(list, underList, selected_Label, isDark, selected_Button, 40)
             }
         }
+
         return list
     }
 
-    creact_button_list = (list) => {
-
+    creact_button_list = (list, underList, selected_Label, isDark, selected_Button, padding) => {
+        for(let i = 0; i < underList.length; i++){
+            let extraStyle2 = {}
+            if(selected_Label === underList[i]['label']){
+                extraStyle2 = {color: '#cc22dd'}
+            }
+            let isRipple = underList[i]['index'].includes('button') ? true : false
+            list.push(
+                <ShinListItem
+                    hoverStyle={{background: isDark ? 'rgba(255, 255, 255, 0.12)' : '#bbbbbb'}}
+                >
+                    <ShinButton
+                        onClick={this.onClick}
+                        index={underList[i]['index']}
+                        label={underList[i]['label']}
+                        labelStyle={this.labelStyle}
+                        style={{ ...this.buttonStyle, ...extraStyle2, paddingLeft: `${padding}px`, fontSize: '12px' }}
+                        href={underList[i]['href']}
+                        isRipple={isRipple}
+                        rippleProps={isRipple ? {duration: '850', color: 'rgba(255, 255, 255, 0.16)'} : undefined}
+                    />
+                </ShinListItem>
+            )
+            if(underList[i]['index'].includes('button') && selected_Button.includes(underList[i]['index'])){
+                let underList_in = underList[i]['list']
+                let padding_in = padding + 40
+                list = this.creact_button_list(list, underList_in, selected_Label, isDark, selected_Button, padding_in)
+            }
+        }
         return list
     }
 
@@ -141,15 +121,18 @@ class Navigation extends PureComponent {
                 if(selected_Button.includes(inner_props['index'])){     //이미 열어진 상태니까 닫기
                     selected_Button.splice(selected_Button.indexOf(inner_props['index']), 1)
                     selected_Label = this.state.selected_Label
-                    selected_Index = ''
-                }else{     //이미 닫혀진 상태니까 열기
+                    if (IsNullOrEmpty(this.state.selected_Index)) { //강제랜더링을 위해 사용
+                        selected_Index = 'none'
+                    } else {
+                        selected_Index = ''
+                    }
+                } else {     //이미 닫혀진 상태니까 열기
                     selected_Button.push(inner_props['index'])
                     selected_Index = inner_props['index']
                     selected_Label = this.state.selected_Label
                 }
             }
-            console.log(selected_Label)
-            this.setState({ selected_Index, selected_Button, selected_Label })
+           this.setState({ selected_Index, selected_Button, selected_Label })
         }
     }
 
@@ -158,7 +141,7 @@ class Navigation extends PureComponent {
         const { navigateList } = this.state
         const { isDark } = this.props
         return (
-            <div className={isDark ? 'Main-Navigation-Dark' : 'Main-Navigation-Bright'} >
+            <div className={isDark ? 'Navigation-Dark' : 'Navigation-Bright'} >
                 <ul style={{paddingLeft:'0px'}}>
                 {this.getNavigationList(navigateList)}
                 </ul>

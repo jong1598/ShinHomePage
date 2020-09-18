@@ -38,15 +38,12 @@ class Header extends PureComponent {
         }
 
         this.state = {
-            selected_Index: '',
+            selected_Index: props.selected_Index,
             headerMenus: [
-                { label: '메뉴1', href: '#/menu1' },
-                { label: '메뉴2', href: '#/menu2' },
-                { label: '메뉴3', href: '#/menu3' },
-                { label: '메뉴4', href: '#/menu4' },
-                { label: '메뉴5', href: '#/menu5' },
-                { label: '메뉴6', href: '#/menu6' },
-                { label: '메뉴7', href: '#/menu7' },
+                { index: '0', label: 'Home', href: '#/Home' },
+                { index: '1', label: 'Introduction', href: '#/Introduction' },
+                { index: '2', label: 'S H I N', href: '#/SHIN' },
+                { index: '3', label: 'Q/A', href: '#/QuestionAnswering' }
             ]
         }
     }
@@ -64,10 +61,6 @@ class Header extends PureComponent {
 
     }
 
-    onClick_logo = () => {
-        this.props.callbackFunction.resetIndex()
-    }
-
     createButton = (buttons) => {
         const { isDark } = this.props
 
@@ -82,7 +75,7 @@ class Header extends PureComponent {
             let hoverStyle = { ...style, background: isDark ? 'rgb(46,37,37)' : 'rgb(246,237,237)' }
             let labelStyle = this.labelStyle
             buttonComponents.push(
-                <ShinButton href={buttons[i]['href']} index={index} style={style} hoverStyle={hoverStyle} labelStyle={labelStyle} label={buttons[i]['label']} onClick={this.onClick} />
+                <ShinButton href={buttons[i]['href']} index={buttons[i]['index']} style={style} hoverStyle={hoverStyle} labelStyle={labelStyle} label={buttons[i]['label']} onClick={this.onClick} />
             )
         }
 
@@ -130,8 +123,8 @@ class Header extends PureComponent {
 
         return (
             <header className={isDark ? "Main-Header-Dark" : "Main-Header-Bright"}>
-                <a href="#/Main" onClick={this.onClick_logo}><img className="Main-Header-Logo" src={logo} /></a>
-                <h1 className="Main-Header-Text"><a href="#/Main" onClick={this.onClick_logo}>SHIN</a></h1>
+                <a href="#/" ><img className="Main-Header-Logo" src={logo} /></a>
+                <h1 className="Main-Header-Text"><a href="#/" >SHIN</a></h1>
                 <div className="Main-Header-Menu" >{buttonComponents}</div>
                 <div className="Main-Header-Link">{linkComponents}</div>
             </header>

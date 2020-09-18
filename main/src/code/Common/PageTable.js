@@ -12,7 +12,7 @@ class PageTable extends PureComponent {
     render() {
         const { isDark } = this.props
         return (
-            <div className={isDark ? 'Main-PageTable-Dark' : 'Main-PageTable-Bright'} >PageTable</div>
+            <div className={isDark ? 'PageTable-Dark' : 'PageTable-Bright'} >PageTable</div>
         )
     }
 }
