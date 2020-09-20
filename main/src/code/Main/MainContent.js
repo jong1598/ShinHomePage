@@ -61,11 +61,30 @@ class MainContent extends PureComponent {
         return component
     }
 
+    createScrollGuideComponent = () => {
+        let component = []
+        const { scroll_height, scroll_position } = this.state
+        const { isDark } = this.props
+        let percent = scroll_height !== 0 ? Math.floor(ToNumber(scroll_position / scroll_height) * 100) : 0
+        let opacity = percent === 0 ? 1 : percent > 10 ? 0 : Math.abs((percent - 10) / 10)
+        let bottom = percent === 0 ? '0px' : percent > 10 ? '0px' : `${Math.abs((percent/ 10) * 100)}px`
+        component.push(
+            <span class="scroll-guide" style={{opacity,bottom}}>
+                <span class="scroll-guide-line" style={{background: isDark ? '#ffffff'  : '#852525'}}></span>
+                <h1 className='startText' style={{fontSize:'12px', color: isDark ? '#ffffff'  : '#852525'}}>Scroll</h1>
+                <h1 className='startText' style={{fontSize:'12px', color: isDark ? '#ffffff'  : '#852525'}}>Scroll</h1>
+                <h1 className='startText' style={{fontSize:'12px', color: isDark ? '#ffffff'  : '#852525'}}>Scroll</h1>
+            </span>
+        )
+        return component
+    }
+
     render() {
         const { isDark } = this.props
-        let scrollHeight = window.outerHeight * 6
+        let scrollHeight = window.outerHeight * 4
 
         let btnComponent = this.createBtnComponent()
+        let scrollGuideComponent = this.createScrollGuideComponent()
 
         return (
             <React.Fragment>
@@ -75,6 +94,7 @@ class MainContent extends PureComponent {
                             {btnComponent}
                         </a>
                     </div>
+                    {scrollGuideComponent}
                     <div className='copyright'>— © Copyright 2020 by ShinJongJin. All rights reserved.</div>
                 </div>
                 <div id='scroll' className='scroll' style={{ height: scrollHeight }}></div>

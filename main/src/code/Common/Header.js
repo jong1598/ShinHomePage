@@ -88,7 +88,7 @@ class Header extends PureComponent {
         const { isDark } = this.props
 
         linkComponents.push(     //링크
-            <ShinTooltip text='Toggle Blight/Dark' tooltipStyle={{ borderRadius: "50%", paddingTop: '20px' }}>
+            <ShinTooltip text='Toggle Blight/Dark' tooltipStyle={{ borderRadius: "50px", top: '61px', height: '20px' }}>
                 <ShinImageButton
                     onClick={this.onClick_brightLogo}
                     style={{ ...this.buttonStyle, height: '42px', width: '38px',marginRight:'5px', paddingRight: '38px' }}
@@ -100,7 +100,7 @@ class Header extends PureComponent {
         )
 
         linkComponents.push(     //링크
-            <ShinTooltip text='Github Repository'tooltipStyle={{ borderRadius: "50%", paddingTop: '20px' }}>
+            <ShinTooltip text='Github Repository'tooltipStyle={{ borderRadius: "50px", top: '61px', height: '20px' }}>
                 <ShinImageButton
                     href={"https://github.com/jong1598/ShinHomePage"}
                     style={{ ...this.buttonStyle, height: '43px', width: '44px', marginRight: '10px',  paddingRight: '38px'}}
