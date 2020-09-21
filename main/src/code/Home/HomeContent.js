@@ -15,7 +15,12 @@ class HomeContent extends PureComponent {
         const { isDark } = this.props
         return (
             <React.Fragment>
-                <div className={isDark ? 'Home-Dark' : 'Home-Bright'} >Home</div>
+                <div className={isDark ? 'Home-Dark' : 'Home-Bright'} >
+                    <div>
+                        Home    
+                    </div>
+                    <div id='scroll' className='scroll' style={{ height: '4000px' }}></div>
+                </div>
             </React.Fragment>
         )
     }
